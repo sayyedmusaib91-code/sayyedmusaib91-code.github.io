@@ -45,9 +45,12 @@ h1{font-size:clamp(36px,8vw,64px);line-height:1.1;margin:8px 0;font-weight:700}
 html.js .rv{opacity:0;transform:translateY(28px)}
 html.js .rv.in{opacity:1;transform:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;transition:transform .25s,border-color .25s}
+.card{display:block;color:var(--fg);background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;transition:transform .25s,border-color .25s}
+a.card{cursor:pointer}
 .card:hover{transform:translateY(-6px);border-color:var(--ac)}
-.card h3{margin:0 0 8px;font-size:17px;font-weight:600}
+.card h3{margin:0 0 8px;font-size:17px;font-weight:600;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+a.card h3::after{content:"\2197";font-size:15px;color:var(--ac);flex-shrink:0;transition:transform .2s}
+a.card:hover h3::after{transform:translate(2px,-2px)}
 .card ul{margin:8px 0 0;padding-left:18px;color:var(--mut);font-size:14px}
 .tag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:var(--chip);color:var(--chipfg);margin:3px 4px 0 0}
 .sk{margin-bottom:18px}
@@ -119,7 +122,7 @@ html.js h2.rv.in::after{transform:scaleX(1)}
 <body>
 <div id="pb"></div>
 <div id="cg"></div>
-<header><a class="logo" href="#top">MS.</a><nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certs">Certificates</a><a href="#contact">Contact</a></nav><button id="snd" aria-pressed="true">Sound on</button></header>
+<header><a class="logo" href="#top">MS.</a><nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certs">Certificates</a><a href="#education">Education</a><a href="#contact">Contact</a></nav><button id="snd" aria-pressed="true">Sound on</button></header>
 
 <section class="hero" id="top">
 <canvas id="pc"></canvas><div class="blob b1"></div><div class="blob b2"></div>
@@ -130,7 +133,7 @@ html.js h2.rv.in::after{transform:scaleX(1)}
 <p class="lead">Computer Science student from Ahmednagar who builds, containerizes, and deploys applications on AWS with automated CI/CD pipelines.</p>
 <div class="btns"><a class="btn p" href="#projects">View my projects</a><a class="btn" href="#contact">Get in touch</a></div>
 <div class="pipe" aria-label="CI/CD pipeline animation"><span class="st">git push</span><span class="ar">&rarr;</span><span class="st">build</span><span class="ar">&rarr;</span><span class="st">docker image</span><span class="ar">&rarr;</span><span class="st">deploy to EC2</span></div>
-<div class="stats"><div class="stat"><b data-n="2">0</b><span>Projects deployed</span></div><div class="stat"><b data-n="2">0</b><span>Certificates</span></div><div class="stat"><b data-n="4">0</b><span>Languages spoken</span></div></div>
+<div class="stats"><div class="stat"><b data-n="3">0</b><span>Projects deployed</span></div><div class="stat"><b data-n="1">0</b><span>Certificates</span></div><div class="stat"><b data-n="4">0</b><span>Languages spoken</span></div></div>
 <div class="sd" aria-hidden="true"></div>
 </section>
 
@@ -146,19 +149,34 @@ html.js h2.rv.in::after{transform:scaleX(1)}
 
 <section id="projects"><h2 class="rv">Projects</h2>
 <div class="grid">
-<div class="card rv"><h3>Cloud-connected 3D game and user portal</h3><span class="meta">Full-stack and cloud deployment</span>
+<a class="card rv" href="https://github.com/sayyedmusaib91-code/Car-Game" target="_blank" rel="noopener">
+<h3>Cloud-connected 3D game and user portal</h3><span class="meta">Full-stack and cloud deployment</span>
 <ul><li>Built an interactive 3D WebGL game with a Python Flask backend and PostgreSQL database.</li><li>Provisioned an AWS EC2 server and set up Nginx as a reverse proxy with Gunicorn.</li><li>Configured the server environment for live public access.</li></ul>
-<div style="margin-top:12px"><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">AWS EC2</span><span class="tag">Nginx</span><span class="tag">Gunicorn</span></div></div>
-<div class="card rv"><h3>Automated CI/CD for a containerized web app</h3><span class="meta">DevOps pipeline</span>
+<div style="margin-top:12px"><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">AWS EC2</span><span class="tag">Nginx</span><span class="tag">Gunicorn</span></div>
+</a>
+
+<a class="card rv" href="https://github.com/sayyedmusaib91-code/docker-cicd-app" target="_blank" rel="noopener">
+<h3>Automated CI/CD for a containerized web app</h3><span class="meta">DevOps pipeline</span>
 <ul><li>Containerized a Node.js full-stack portfolio app using Docker multi-stage builds.</li><li>Deployed on an AWS EC2 Ubuntu instance with Nginx and automatic HTTPS redirection.</li><li>Added GitHub Actions workflows for build checks and container delivery on every push.</li></ul>
-<div style="margin-top:12px"><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Node.js</span><span class="tag">Ubuntu</span><span class="tag">HTTPS</span></div></div>
+<div style="margin-top:12px"><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Node.js</span><span class="tag">Ubuntu</span><span class="tag">HTTPS</span></div>
+</a>
+
+<a class="card rv" href="https://github.com/sayyedmusaib91-code/CODSOFT_TASKSNO" target="_blank" rel="noopener">
+<h3>CodSoft DevOps Internship</h3><span class="meta">Containerization, reverse proxy &amp; CI/CD</span>
+<ul><li>Containerized applications using custom Dockerfiles and multi-container setups.</li><li>Configured Nginx web server and reverse proxy routing rules for hosted services.</li><li>Built automated GitHub Actions CI/CD workflows and managed structured Git repositories.</li></ul>
+<div style="margin-top:12px"><span class="tag">Docker</span><span class="tag">Nginx</span><span class="tag">GitHub Actions</span><span class="tag">Git &amp; GitHub</span></div>
+</a>
 </div></section>
 
-<section id="certs"><h2 class="rv">Certificates and education</h2>
+<section id="certs"><h2 class="rv">Certificates</h2>
 <div class="grid">
-<div class="card rv"><h3>Oracle Siebel CRM Certified Foundations Associate</h3><span class="meta">Oracle University &middot; September 2026</span></div>
-<div class="card rv"><h3>Oracle Cloud Infrastructure for Sunbird Ed Specialty</h3><span class="meta">Oracle University &middot; September 2026</span></div>
-<div class="card rv"><h3>BSc Computer Science</h3><span class="meta">Ahmednagar College, SPPU &middot; 2024 – present</span></div>
+<a class="card rv" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=93B219433454A67ED6777873C7B71F342FBE17BEB94CD415EA359BA0F917BB0D" target="_blank" rel="noopener"><h3>Oracle Cloud Infrastructure for Sunbird Ed Specialty</h3><span class="meta">Oracle University &middot; September 2026</span></a>
+</div></section>
+
+<section id="education"><h2 class="rv">Education</h2>
+<div class="grid">
+<div class="card rv"><h3>Bachelor of Science in Computer Science</h3><span class="meta">BPHE Society's Ahmednagar College, SPPU &middot; 2024 – Present</span></div>
+<div class="card rv"><h3>Higher Secondary Certificate (12th - Science)</h3><span class="meta">Chand Sultana Junior College &middot; 2022 – 2024</span></div>
 </div></section>
 
 <section class="contact" id="contact"><h2 class="rv">Let’s connect</h2>
